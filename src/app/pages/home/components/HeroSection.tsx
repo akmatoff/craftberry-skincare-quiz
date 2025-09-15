@@ -1,7 +1,20 @@
 import Button from "@/app/shared/components/Button";
+import { ROUTES } from "@/app/shared/constants/routes";
+import { quizQuestions } from "@/app/shared/data/questions";
 import HeroImage from "@/assets/images/hero-image.png";
+import { useNavigate } from "react-router";
+
+const firstQuestionId = quizQuestions[0].id;
 
 export default function HeroSection() {
+  const navigate = useNavigate();
+
+  const handleStartQuiz = () => {
+    if (quizQuestions.length === 0) return;
+
+    navigate(`${ROUTES.quiz}/${firstQuestionId}`);
+  };
+
   return (
     <section
       className="relative text-white h-[526px] bg-cover bg-center flex flex-col justify-center items-center"
@@ -18,7 +31,7 @@ export default function HeroSection() {
           your needs.
         </p>
 
-        <Button>Start the quiz</Button>
+        <Button onClick={handleStartQuiz}>Start the quiz</Button>
       </div>
     </section>
   );

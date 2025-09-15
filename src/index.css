@@ -19,6 +19,7 @@
     --foreground-color: #1c2635;
     --muted-content: #eef7fb;
     --content: #ffffff;
+    --muted-foreground: #677487;
   }
 
   * {

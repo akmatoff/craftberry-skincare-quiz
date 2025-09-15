@@ -8,6 +8,7 @@ const button = tv({
     variant: {
       solid: "bg-primary text-foreground hover:opacity-80 duration-300",
       outline: "border border-primary hover:opacity-80 duration-300",
+      ghost: "text-foreground underline",
     },
   },
 
@@ -18,9 +19,18 @@ const button = tv({
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: ReactNode;
-  variant?: "solid" | "outline";
+  variant?: "solid" | "outline" | "ghost";
 };
 
-export default function Button({ children, variant, className }: Props) {
-  return <button className={button({ variant, className })}>{children}</button>;
+export default function Button({
+  children,
+  variant,
+  className,
+  ...props
+}: Props) {
+  return (
+    <button className={button({ variant, className })} {...props}>
+      {children}
+    </button>
+  );
 }

@@ -6,6 +6,7 @@ export default {
       colors: {
         background: "var(--background-color)",
         foreground: "var(--foreground-color)",
+        "muted-foreground": "var(--muted-foreground)",
         primary: "var(--primary-color)",
         "muted-content": "var(--muted-content)",
         content: "var(--content)",

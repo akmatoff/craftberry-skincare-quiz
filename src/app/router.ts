@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
         Component: HomePage,
       },
       {
-        path: ":questionNumber",
+        path: "quiz/:questionId",
         Component: QuizPage,
       },
       {
