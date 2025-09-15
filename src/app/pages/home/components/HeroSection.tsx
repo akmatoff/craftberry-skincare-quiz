@@ -1,0 +1,25 @@
+import Button from "@/app/shared/components/Button";
+import HeroImage from "@/assets/images/hero-image.png";
+
+export default function HeroSection() {
+  return (
+    <section
+      className="relative text-white h-[526px] bg-cover bg-center flex flex-col justify-center items-center"
+      style={{ backgroundImage: `url(${HeroImage})` }}
+    >
+      <div className="absolute inset-0 bg-black opacity-35" />
+
+      <div className="relative text-center max-w-[500px] space-y-4">
+        <h1 className="text-[40px]/[40px]">
+          Build a self care routine suitable for you
+        </h1>
+        <p>
+          Take out test to get a personalised self care <br /> routine based on
+          your needs.
+        </p>
+
+        <Button>Start the quiz</Button>
+      </div>
+    </section>
+  );
+}
