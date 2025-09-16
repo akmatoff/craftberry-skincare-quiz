@@ -12,7 +12,7 @@ export default function OptionButton({ option, isSelected, onSelect }: Props) {
     <label
       htmlFor={option.id}
       className={cn(
-        "cursor-pointer select-none min-w-[180px] px-5 py-[14px] border border-primary rounded-lg hover:opacity-80 duration-300",
+        "cursor-pointer select-none min-w-[180px] px-5 py-[14px] border border-border rounded-lg hover:opacity-80 duration-300",
         isSelected ? "bg-primary" : "bg-transparent"
       )}
     >
@@ -24,7 +24,7 @@ export default function OptionButton({ option, isSelected, onSelect }: Props) {
         checked={isSelected}
         onChange={onSelect}
       />
-      {option.text}
+      {option.id}. {option.text}
     </label>
   );
 }

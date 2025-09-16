@@ -15,11 +15,13 @@
 @layer base {
   :root {
     --primary-color: #c3edff;
+    --primary-darker: #aaddf3;
     --background-color: #ffffff;
     --foreground-color: #1c2635;
     --muted-content: #eef7fb;
     --content: #ffffff;
     --muted-foreground: #677487;
+    --border-color: #5bc1ed;
   }
 
   * {

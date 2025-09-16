@@ -8,6 +8,8 @@ export default {
         foreground: "var(--foreground-color)",
         "muted-foreground": "var(--muted-foreground)",
         primary: "var(--primary-color)",
+        "primary-darker": "var(--primary-darker)",
+        border: "var(--border-color)",
         "muted-content": "var(--muted-content)",
         content: "var(--content)",
       },
