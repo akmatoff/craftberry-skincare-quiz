@@ -2,8 +2,13 @@ import { useQuiz } from "@/app/shared/services/useQuiz";
 import Question from "./components/Question";
 import Button from "@/app/shared/components/Button";
 import CircularProgressBar from "@/app/shared/components/CircularProgressBar";
+import { useNavigation } from "react-router";
 
 export default function QuizPage() {
+  const navigation = useNavigation();
+
+  const isNavigating = Boolean(navigation.location);
+
   const {
     currentQuestion,
     hasNextQuestion,
@@ -39,7 +44,13 @@ export default function QuizPage() {
             Next question
           </Button>
         ) : (
-          <Button onClick={finishQuiz}>Discover your results</Button>
+          <Button
+            onClick={finishQuiz}
+            disabled={!isAnswered || isNavigating}
+            isLoading={isNavigating}
+          >
+            Discover your results
+          </Button>
         )}
       </div>
     </section>

@@ -3,6 +3,7 @@ import RootLayout from "./layouts/RootLayout";
 import HomePage from "./pages/home/HomePage";
 import QuizPage from "./pages/quiz/QuizPage";
 import ResultsPage from "./pages/results/ResultsPage";
+import { getAllProducts } from "./shared/api/getAllProducts";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,11 @@ export const router = createBrowserRouter([
       {
         path: "results",
         Component: ResultsPage,
+        loader: async () => {
+          const allProducts = await getAllProducts();
+
+          return { allProducts };
+        },
       },
     ],
   },

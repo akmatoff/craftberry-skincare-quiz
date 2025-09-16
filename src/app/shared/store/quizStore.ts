@@ -1,18 +1,19 @@
 import { create } from "zustand";
+import type { QuestionAnswer } from "../types";
 
 export type QuizState = {
-  answers: Record<string, string>;
-  setAnswer: (questionId: string, optionId: string) => void;
+  answers: Record<string, QuestionAnswer | undefined>;
+  setAnswer: (questionId: string, answer: QuestionAnswer) => void;
   clear: () => void;
 };
 
 export const useQuizStore = create<QuizState>((set) => ({
   answers: {},
-  setAnswer: (questionId, optionId) =>
+  setAnswer: (questionId, answer) =>
     set((state) => ({
       answers: {
         ...state.answers,
-        [questionId]: optionId,
+        [questionId]: answer,
       },
     })),
   clear: () => set({ answers: {} }),

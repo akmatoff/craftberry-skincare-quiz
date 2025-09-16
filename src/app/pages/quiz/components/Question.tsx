@@ -1,4 +1,4 @@
-import { type Question } from "@/app/shared/types";
+import { type Question, type QuestionOption } from "@/app/shared/types";
 import OptionButton from "./OptionButton";
 import { useQuiz } from "@/app/shared/services/useQuiz";
 import { useCallback } from "react";
@@ -11,7 +11,8 @@ export default function Question({ question }: Props) {
   const { setAnswer, isSelected } = useQuiz();
 
   const handleSelect = useCallback(
-    (optionId: string) => setAnswer(question.id, optionId),
+    (option: QuestionOption) =>
+      setAnswer(question.id, { question: question.question, answer: option }),
     [question.id, setAnswer]
   );
 
@@ -27,7 +28,7 @@ export default function Question({ question }: Props) {
             key={option.id}
             option={option}
             isSelected={isSelected(option.id)}
-            onSelect={() => handleSelect(option.id)}
+            onSelect={() => handleSelect(option)}
           />
         ))}
       </div>

@@ -26,7 +26,7 @@ export function useQuiz() {
   };
 
   const isSelected = (optionId: string) =>
-    questionId ? answers[questionId] === optionId : false;
+    questionId ? answers[questionId]?.answer.id === optionId : false;
 
   const nextQuestion = () => {
     if (hasNextQuestion) {
