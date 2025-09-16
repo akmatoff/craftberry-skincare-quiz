@@ -16,6 +16,11 @@ export default function ProductSlider({ products }: Props) {
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const itemsPerPage = 3;
+
+  const pagesCount = Math.ceil((products.length + 1) / 3);
 
   const updateButtons = useCallback(() => {
     if (!emblaApi) return;
@@ -23,6 +28,7 @@ export default function ProductSlider({ products }: Props) {
     setCanScrollPrev(emblaApi.canScrollPrev());
     setCanScrollNext(emblaApi.canScrollNext());
     setSelectedIndex(emblaApi.selectedScrollSnap());
+    setCurrentPage(Math.floor(emblaApi.selectedScrollSnap() / itemsPerPage));
   }, [emblaApi]);
 
   useEffect(() => {
@@ -38,7 +44,7 @@ export default function ProductSlider({ products }: Props) {
     if (!emblaApi) return;
 
     const currentIndex = emblaApi.selectedScrollSnap();
-    const targetIndex = Math.max(currentIndex - 3, 0);
+    const targetIndex = Math.max(currentIndex - itemsPerPage, 0);
 
     emblaApi.scrollTo(targetIndex);
   }, [emblaApi]);
@@ -93,18 +99,15 @@ export default function ProductSlider({ products }: Props) {
       )}
 
       <div className="flex justify-center mt-14 gap-2">
-        {emblaApi &&
-          emblaApi
-            .scrollSnapList()
-            .map((_, index) => (
-              <button
-                key={index}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === selectedIndex ? "bg-border" : "bg-inactive"
-                }`}
-                onClick={() => emblaApi.scrollTo(index)}
-              />
-            ))}
+        {Array.from({ length: pagesCount }).map((_, index) => (
+          <button
+            key={index}
+            className={`w-3 h-3 rounded-full transition-colors ${
+              index === currentPage ? "bg-border" : "bg-inactive"
+            }`}
+            onClick={() => emblaApi?.scrollTo(index * itemsPerPage)}
+          />
+        ))}
       </div>
     </div>
   );

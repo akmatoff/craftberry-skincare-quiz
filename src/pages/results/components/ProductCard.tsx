@@ -1,5 +1,7 @@
+import LoadingSpinner from "@/shared/components/LoadingSpinner";
 import { useWishlist } from "@/shared/services/useWishlist";
 import type { Product } from "@/shared/types";
+import { useState } from "react";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
 type Props = {
@@ -8,15 +10,23 @@ type Props = {
 
 export function ProductCard({ product }: Props) {
   const { isProductInWishlist, toggleProduct } = useWishlist();
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   return (
     <article className="flex flex-col items-center relative bg-content rounded-lg">
       {product.images.length > 0 && (
         <div className="w-full relative overflow-hidden rounded-lg max-h-[500px] bg-muted-content">
+          {!isImageLoaded && (
+            <div className="flex items-center justify-cetner w-full h-full">
+              <LoadingSpinner />
+            </div>
+          )}
+
           <img
             src={product.images[0].src}
             alt={product.title}
             className="object-cover w-full max-h-[500px]"
+            onLoad={() => setIsImageLoaded(true)}
           />
         </div>
       )}
