@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { tv } from "tailwind-variants";
 
 const button = tv({
-  base: "inline-flex items-center justify-center rounded-lg px-10 py-[14px] font-medium outline-none disabled:pointer-events-none disabled:opacity-60",
+  base: "inline-flex items-center justify-center rounded-lg px-14 py-[14px] font-medium outline-none disabled:pointer-events-none disabled:opacity-60",
 
   variants: {
     variant: {

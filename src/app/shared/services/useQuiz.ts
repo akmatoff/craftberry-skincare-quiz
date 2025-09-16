@@ -7,7 +7,7 @@ import type { QuizProgress } from "../types";
 export function useQuiz() {
   const { questionId } = useParams<{ questionId: string }>();
 
-  const { answers, setAnswer } = useQuizStore();
+  const { answers, setAnswer, clear } = useQuizStore();
 
   const navigate = useNavigate();
 
@@ -46,6 +46,11 @@ export function useQuiz() {
     navigate(ROUTES.results);
   };
 
+  const retakeQuiz = () => {
+    clear();
+    navigate(`${ROUTES.quiz}/${quizQuestions[0].id}`);
+  };
+
   return {
     currentQuestion,
     currentIndex,
@@ -58,5 +63,6 @@ export function useQuiz() {
     answers,
     setAnswer,
     isSelected,
+    retakeQuiz,
   };
 }

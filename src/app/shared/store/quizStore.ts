@@ -3,6 +3,7 @@ import { create } from "zustand";
 export type QuizState = {
   answers: Record<string, string>;
   setAnswer: (questionId: string, optionId: string) => void;
+  clear: () => void;
 };
 
 export const useQuizStore = create<QuizState>((set) => ({
@@ -14,4 +15,5 @@ export const useQuizStore = create<QuizState>((set) => ({
         [questionId]: optionId,
       },
     })),
+  clear: () => set({ answers: {} }),
 }));
