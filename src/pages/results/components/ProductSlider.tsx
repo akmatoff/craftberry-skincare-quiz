@@ -15,7 +15,6 @@ export default function ProductSlider({ products }: Props) {
 
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
 
   const itemsPerPage = 3;
@@ -27,7 +26,6 @@ export default function ProductSlider({ products }: Props) {
 
     setCanScrollPrev(emblaApi.canScrollPrev());
     setCanScrollNext(emblaApi.canScrollNext());
-    setSelectedIndex(emblaApi.selectedScrollSnap());
     setCurrentPage(Math.floor(emblaApi.selectedScrollSnap() / itemsPerPage));
   }, [emblaApi]);
 
