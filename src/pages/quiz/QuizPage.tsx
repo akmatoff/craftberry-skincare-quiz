@@ -3,6 +3,7 @@ import Question from "./components/Question";
 import Button from "@/shared/components/Button";
 import CircularProgressBar from "@/shared/components/CircularProgressBar";
 import { useNavigation } from "react-router";
+import { CgArrowLongRight } from "react-icons/cg";
 
 export default function QuizPage() {
   const navigation = useNavigation();
@@ -40,7 +41,11 @@ export default function QuizPage() {
         </Button>
 
         {hasNextQuestion ? (
-          <Button onClick={nextQuestion} disabled={!isAnswered}>
+          <Button
+            onClick={nextQuestion}
+            disabled={!isAnswered}
+            trailingIcon={<CgArrowLongRight />}
+          >
             Next question
           </Button>
         ) : (
