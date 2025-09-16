@@ -20,7 +20,7 @@ export default function QuizPage() {
 
   return (
     <section className="flex flex-col justify-center items-center h-screen space-y-8">
-      <div className="flex">
+      <div className="flex space-x-32">
         <Question question={currentQuestion} />
 
         <CircularProgressBar

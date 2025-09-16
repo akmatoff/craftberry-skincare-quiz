@@ -8,15 +8,15 @@ type Props = {
 };
 
 export default function CircularProgressBar({
-  size = 100,
-  strokeWidth = 4,
+  size = 102,
+  strokeWidth = 5,
   progress,
   label,
 }: Props) {
   const center = size / 2;
   const radius = center - strokeWidth / 2;
-  const totalPerimeter = 2 * Math.PI * radius;
-  const offset = totalPerimeter - (progress / 100) * totalPerimeter;
+  const circumference = 2 * Math.PI * radius;
+  const offset = (circumference * (100 - progress)) / 100;
 
   return (
     <svg width={size} height={size}>
@@ -36,10 +36,10 @@ export default function CircularProgressBar({
         stroke="var(--primary-darker)"
         strokeWidth={strokeWidth}
         fill="none"
-        strokeDasharray={totalPerimeter}
+        strokeDasharray={circumference}
         strokeDashoffset={offset}
         strokeLinecap="round"
-        transform={`rotate(-90) ${center} ${center}`}
+        transform={`rotate(-90 ${center} ${center})`}
       />
 
       {label && (

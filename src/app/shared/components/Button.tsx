@@ -8,7 +8,7 @@ const button = tv({
     variant: {
       solid: "bg-primary text-foreground hover:opacity-80 duration-300",
       outline: "border border-border hover:opacity-80 duration-300",
-      ghost: "text-foreground underline",
+      ghost: "px-4 text-foreground underline",
     },
   },
 

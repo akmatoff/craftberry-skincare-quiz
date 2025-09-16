@@ -16,10 +16,12 @@ export default function Question({ question }: Props) {
   );
 
   return (
-    <div className="space-y-8">
-      <h1 className="text-center">{question.question}</h1>
+    <div className="flex flex-col items-center space-y-8 lg:max-w-[50dvw]">
+      <p className="text-center lg:max-w-[30dvw] text-[40px]/[40px] font-light grange">
+        {question.question}
+      </p>
 
-      <div className="flex items-center space-x-[10px]">
+      <div className="flex items-center justify-center gap-[10px] flex-wrap">
         {question.options.map((option) => (
           <OptionButton
             key={option.id}
