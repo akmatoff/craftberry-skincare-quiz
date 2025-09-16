@@ -1,13 +1,14 @@
-import { quizQuestions } from "@/app/shared/data/questions";
+import { quizQuestions } from "@/shared/data/questions";
 import { useNavigate, useParams } from "react-router";
-import { ROUTES } from "@/app/shared/constants/routes";
+import { ROUTES } from "@/shared/constants/routes";
 import { useQuizStore } from "../store/quizStore";
 import type { QuizProgress } from "../types";
 
 export function useQuiz() {
   const { questionId } = useParams<{ questionId: string }>();
 
-  const { answers, setAnswer, clear } = useQuizStore();
+  const { answers, setAnswer, clear, isCompleted, setIsCompleted } =
+    useQuizStore();
 
   const navigate = useNavigate();
 
@@ -43,6 +44,7 @@ export function useQuiz() {
   };
 
   const finishQuiz = () => {
+    setIsCompleted(true);
     navigate(ROUTES.results);
   };
 
@@ -59,10 +61,11 @@ export function useQuiz() {
     nextQuestion,
     prevQuestion,
     finishQuiz,
+    retakeQuiz,
     progress,
     answers,
     setAnswer,
     isSelected,
-    retakeQuiz,
+    isCompleted,
   };
 }

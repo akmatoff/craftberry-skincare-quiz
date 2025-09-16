@@ -1,7 +1,7 @@
-import { useQuiz } from "@/app/shared/services/useQuiz";
+import { useQuiz } from "@/shared/services/useQuiz";
 import Question from "./components/Question";
-import Button from "@/app/shared/components/Button";
-import CircularProgressBar from "@/app/shared/components/CircularProgressBar";
+import Button from "@/shared/components/Button";
+import CircularProgressBar from "@/shared/components/CircularProgressBar";
 import { useNavigation } from "react-router";
 
 export default function QuizPage() {

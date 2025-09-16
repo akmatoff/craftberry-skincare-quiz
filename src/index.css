@@ -81,12 +81,11 @@ button {
 }
 
 .loader {
-  width: 28px;
-  height: 28px;
   border-radius: 50%;
   position: relative;
   animation: rotate 1s linear infinite;
 }
+
 .loader::before {
   content: "";
   box-sizing: border-box;

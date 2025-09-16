@@ -1,4 +1,4 @@
-import type { QuestionOption } from "@/app/shared/types";
+import type { QuestionOption } from "@/shared/types";
 import cn from "classnames";
 
 type Props = {

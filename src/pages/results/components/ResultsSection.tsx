@@ -1,5 +1,5 @@
-import Button from "@/app/shared/components/Button";
-import { useQuiz } from "@/app/shared/services/useQuiz";
+import Button from "@/shared/components/Button";
+import { useQuiz } from "@/shared/services/useQuiz";
 import ResultsImage from "@/assets/images/result-image.png";
 
 export function ResultsSection() {

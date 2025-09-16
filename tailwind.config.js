@@ -12,6 +12,7 @@ export default {
         border: "var(--border-color)",
         "muted-content": "var(--muted-content)",
         content: "var(--content)",
+        inactive: "var(--inactive)",
       },
     },
   },

@@ -1,6 +1,6 @@
-import Button from "@/app/shared/components/Button";
-import { ROUTES } from "@/app/shared/constants/routes";
-import { quizQuestions } from "@/app/shared/data/questions";
+import Button from "@/shared/components/Button";
+import { ROUTES } from "@/shared/constants/routes";
+import { quizQuestions } from "@/shared/data/questions";
 import HeroImage from "@/assets/images/hero-image.png";
 import { useNavigate } from "react-router";
 

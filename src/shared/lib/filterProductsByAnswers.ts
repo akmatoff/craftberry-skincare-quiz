@@ -9,6 +9,8 @@ export function filterProductsByAnswers(
       product.body_html
     } ${product.tags.join(" ")}`.toLowerCase();
 
+    console.log(searchTerm);
+
     return answers.some((answer) =>
       searchTerm.includes(answer.answer.text.toLowerCase())
     );

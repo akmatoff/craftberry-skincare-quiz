@@ -1,6 +1,6 @@
-import { type Question, type QuestionOption } from "@/app/shared/types";
+import { type Question, type QuestionOption } from "@/shared/types";
 import OptionButton from "./OptionButton";
-import { useQuiz } from "@/app/shared/services/useQuiz";
+import { useQuiz } from "@/shared/services/useQuiz";
 import { useCallback } from "react";
 
 type Props = {
