@@ -18,10 +18,8 @@ export default function ResultsPage() {
 
   return (
     <>
-      <div>
-        <ResultsSection />
-      </div>
-      <div className="-mt-16 relative">
+      <ResultsSection />
+      <div className="-mt-20 relative">
         <ProductRecommendations />
       </div>
     </>

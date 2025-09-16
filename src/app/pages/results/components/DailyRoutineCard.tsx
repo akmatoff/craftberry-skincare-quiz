@@ -1,6 +1,6 @@
 export default function DailyRoutineCard() {
   return (
-    <article className="bg-muted-content rounded-lg p-14 space-y-4">
+    <article className="bg-muted-content rounded-lg p-14 space-y-4 w-full h-full">
       <h2 className="text-center">Daily routine</h2>
 
       <p>

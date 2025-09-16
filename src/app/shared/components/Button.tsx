@@ -11,6 +11,7 @@ const button = tv({
         "min-w-[210px] bg-primary text-foreground hover:opacity-80 duration-300",
       outline: "border border-border hover:opacity-80 duration-300",
       ghost: "px-4 text-foreground underline",
+      circle: "p-4 rounded-full bg-muted-content hover:opacity-80 duration-300",
     },
   },
 
@@ -21,7 +22,7 @@ const button = tv({
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: ReactNode;
-  variant?: "solid" | "outline" | "ghost";
+  variant?: "solid" | "outline" | "ghost" | "circle";
   isLoading?: boolean;
   trailingIcon?: ReactNode;
 };
